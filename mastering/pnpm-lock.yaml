@@ -2,7 +2,11 @@ lockfileVersion: 5.4
 
 specifiers:
   '@nuxtjs/tailwindcss': ^6.4.1
+  nuxi: ^3.2.3
   nuxt: ^3.2.3
+
+dependencies:
+  nuxi: 3.2.3
 
 devDependencies:
   '@nuxtjs/tailwindcss': 6.4.1
@@ -3164,7 +3168,6 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
     requiresBuild: true
-    dev: true
     optional: true
 
   /function-bind/1.1.1:
@@ -4335,7 +4338,6 @@ packages:
     hasBin: true
     optionalDependencies:
       fsevents: 2.3.2
-    dev: true
 
   /nuxt/3.2.3:
     resolution: {integrity: sha512-e211l9XQYvb2cUv5ji+IsX8305QyozUk5pFMyl7oAFssONzPNK4AXq7ZUzXd8qtxStsyByOgQDdAF353sQayOg==}
