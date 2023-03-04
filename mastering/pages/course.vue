@@ -15,8 +15,12 @@
         <div class="space-y-1 mb-4 ml-2 flex flex-col" v-for="chapter in chapters" :key="chapter.slug">
           <h4>{{ chapter.title }}</h4>
           <NuxtLink v-for="(lesson, index) in chapter.lessons" :key="lesson.slug" 
-          class="flex flex-row space-x-1 ml-2 no-underline prose-sm font-normal py-1"
-          :to="`/course/chapter/${chapter.slug}/lesson/${lesson.slug}`">
+          class="flex flex-row space-x-1 ml-2 no-underline prose-sm text-base py-1"
+          :to="lesson.path"
+          :class="{
+          'text-blue-500': lesson.path === $route.fullPath,
+          'text-gray-600': lesson.path !== $route.fullPath}"
+          >
             <span class="text-gray-500">{{ index + 1 }}.</span>
             <span>{{lesson.title}}</span>
           </NuxtLink>
@@ -55,4 +59,6 @@
 const { chapters } = useCourse();
 </script>
 
-<style scoped></style>
+<style scoped>
+
+</style>
