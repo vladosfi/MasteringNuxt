@@ -1,5 +1,5 @@
 <template>
-  <div class="p-12 bg-gray-100 w-full h-full min-h-screen flex flex-col text-center text-3xl font-bold shadow-md">
+  <div class="text-3xl font-bold">
     <div class="prose mb-12">
       <h1>
         <span class="font-medium"
@@ -32,13 +32,6 @@
 
       <div class="prose p-12 bg-white rounded-md w-[65ch]">
         <NuxtPage />
-        <div class="text-base">
-          <p>An Introduction to Mastering Nuxt 3 </p>
-          <p>
-            The team behind Nuxt 3 and the Mastering Nuxt 3 course share their insights into the journey of creating Nuxt and the ultimate guide to learning the
-            platform. The video includes the team from NuxtLabs, Vue School and Mastering Nuxt. Discover the epic path that has lead the launch of the course.
-          </p>
-        </div>
       </div>
     </div>
   </div>
@@ -67,6 +60,10 @@
 
 <script setup>
 const { chapters } = useCourse();
+
+definePageMeta({
+  layout: 'default'
+})
 </script>
 
 <style scoped></style>

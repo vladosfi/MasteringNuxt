@@ -2,7 +2,7 @@
   <div class="text-left">
     <p class="mt-0 uppercase font-bold text-slate-400 mb-1">Lesson {{ chapter.number }} - {{ lesson.number }}</p>
     <h2 class="my-0">{{ lesson.title }}</h2>
-    <div class="flex space-x-4 mt-2 mb-8">
+    <div class="flex space-x-4 mt-2 mb-4">
       <NuxtLink v-if="lesson.downloadUrl" class="text-base text-gray-500 underline" :to="lesson.downloadUrl">Download Source Code</NuxtLink>
 
       <NuxtLink v-if="lesson.downloadUrl" class="text-base text-gray-500 underline" :to="lesson.downloadUrl">Download Video</NuxtLink>
@@ -10,10 +10,9 @@
 
     <VideoPlayer v-if="lesson.videoId" :videoId="lesson.videoId"></VideoPlayer>
 
-    <p class="text-base mt-8 font-normal">{{ lesson.text }}</p>
+    <p class="text-base mt-2 font-normal">{{ lesson.text }}</p>
 
-      <LessonCompleteButton :model-value="isLessonComplete" @update:model-value="toggleComplete" />
-   
+    <LessonCompleteButton :model-value="isLessonComplete" @update:model-value="toggleComplete" />
   </div>
 </template>
 
