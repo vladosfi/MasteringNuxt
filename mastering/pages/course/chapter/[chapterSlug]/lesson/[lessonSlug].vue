@@ -11,7 +11,9 @@
     <VideoPlayer v-if="lesson.videoId" :videoId="lesson.videoId"></VideoPlayer>
 
     <p class="text-base mt-8 font-normal">{{ lesson.text }}</p>
-    <LessonCompleteButton :model-value="isLessonComplete" @update:model-value="toggleComplete" />
+
+      <LessonCompleteButton :model-value="isLessonComplete" @update:model-value="toggleComplete" />
+   
   </div>
 </template>
 
@@ -37,9 +39,7 @@ useHead({
   title: title,
 });
 
-const progress = useState("progress", () => {
-  return [];
-});
+const progress = useLocalStorage("progress", []);
 
 const isLessonComplete = computed(() => {
   if (!progress.value[chapter.value.number - 1]) {

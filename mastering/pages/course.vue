@@ -14,21 +14,31 @@
         <h3 class="space-y-1 mb-4 text-gray-500">Chapters</h3>
         <div class="space-y-1 mb-4 ml-2 flex flex-col" v-for="chapter in chapters" :key="chapter.slug">
           <h4>{{ chapter.title }}</h4>
-          <NuxtLink v-for="(lesson, index) in chapter.lessons" :key="lesson.slug" 
-          class="flex flex-row space-x-1 ml-2 no-underline prose-sm text-base py-1"
-          :to="lesson.path"
-          :class="{
-          'text-blue-500': lesson.path === $route.fullPath,
-          'text-gray-600': lesson.path !== $route.fullPath}"
+          <NuxtLink
+            v-for="(lesson, index) in chapter.lessons"
+            :key="lesson.slug"
+            class="flex flex-row space-x-1 ml-2 no-underline prose-sm text-base py-1"
+            :to="lesson.path"
+            :class="{
+              'text-blue-500': lesson.path === $route.fullPath,
+              'text-gray-600': lesson.path !== $route.fullPath,
+            }"
           >
             <span class="text-gray-500">{{ index + 1 }}.</span>
-            <span>{{lesson.title}}</span>
+            <span>{{ lesson.title }}</span>
           </NuxtLink>
         </div>
       </div>
 
       <div class="prose p-12 bg-white rounded-md w-[65ch]">
         <NuxtPage />
+        <div class="text-base">
+          <p>An Introduction to Mastering Nuxt 3 </p>
+          <p>
+            The team behind Nuxt 3 and the Mastering Nuxt 3 course share their insights into the journey of creating Nuxt and the ultimate guide to learning the
+            platform. The video includes the team from NuxtLabs, Vue School and Mastering Nuxt. Discover the epic path that has lead the launch of the course.
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -59,6 +69,4 @@
 const { chapters } = useCourse();
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
