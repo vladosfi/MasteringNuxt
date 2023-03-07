@@ -1,14 +1,22 @@
 <template>
   <div>
     <div class="text-3xl font-bold">
-      <div class="prose mb-12">
+      <div class="mb-4 flex justify-between items-center w-full">
+        <h1 class="text-3xl">
+          <span class="font-medium">
+            <span class="font-bold">{{ title }}</span>
+          </span>
+        </h1>
+        <UserCard />
+      </div>
+      <!-- <div class="prose mb-12">
         <h1>
           <span class="font-medium"
             >Course:
             <span class="font-bold">{{ title }}</span>
           </span>
         </h1>
-      </div>
+      </div> -->
 
       <div class="flex flex-row justify-center flex-grow text-left">
         <div class="prose mr-4 p-8 bg-white rounded-md min-w-[20ch] max-w-[30ch] flex flex-col">
