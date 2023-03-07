@@ -31,11 +31,26 @@
       </div>
 
       <div class="prose p-12 bg-white rounded-md w-[65ch]">
-        <NuxtPage />
+        <NuxtErrorBoundary>
+          <NuxtPage />
+
+          <template #error="{ error }">
+            <div class="text-base">
+              <p>
+                Oh no, something broke when loading the lesson!
+                <code>{{ error }}</code>
+              </p>
+              <p>
+                <button class="hover:cursor-pointer" @click="clearError(error)">Go to the first lesson</button>
+              </p>
+            </div>
+          </template>
+        </NuxtErrorBoundary>
       </div>
     </div>
   </div>
 </template>
+
 <!-- <template>
   <div class="relative h-16 ">
     <div class=" inset-x-0 top-0 h-16 text-center text-5xl font-bold shadow-md">
@@ -62,8 +77,16 @@
 const { chapters } = useCourse();
 
 definePageMeta({
-  layout: 'default'
-})
+  layout: "default",
+});
+
+const clearError = async (err) => {
+  // Go to the first lesson
+  await navigateTo(
+    '/course/chapter/1-chapter-1/lesson/1-introduction'
+  );
+  err.value = null;
+};
 </script>
 
 <style scoped></style>
