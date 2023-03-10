@@ -9,7 +9,7 @@
 
 <script setup>
 const courseLocation = "/course";
-const firstLesson = useFirstLesson();
+const firstLesson = await useFirstLesson();
 </script>
 
 <style scoped></style>

@@ -4,7 +4,7 @@
       <div class="mb-4 flex justify-between items-center w-full">
         <h1 class="text-3xl">
           <span class="font-medium">
-            <span class="font-bold">{{ title }}</span>
+            <span class="font-bold">{{ course.title }}</span>
           </span>
         </h1>
         <UserCard />
@@ -21,7 +21,7 @@
       <div class="flex flex-row justify-center flex-grow text-left">
         <div class="prose mr-4 p-8 bg-white rounded-md min-w-[20ch] max-w-[30ch] flex flex-col">
           <h3 class="space-y-1 mb-4 text-gray-500">Chapters</h3>
-          <div class="space-y-1 mb-4 ml-2 flex flex-col" v-for="chapter in chapters" :key="chapter.slug">
+          <div class="space-y-1 mb-4 ml-2 flex flex-col" v-for="chapter in course.chapters" :key="chapter.slug">
             <h4>{{ chapter.title }}</h4>
             <NuxtLink
               v-for="(lesson, index) in chapter.lessons"
@@ -84,15 +84,15 @@
 </template> -->
 
 <script setup>
-const { title, chapters } = useCourse();
-
+const course = await useCourse();
+const firstLesson = useFirstLesson();
 definePageMeta({
   layout: "default",
 });
 
 const clearError = async (err) => {
   // Go to the first lesson
-  await navigateTo("/course/chapter/1-chapter-1/lesson/1-introduction");
+  await navigateTo(firstLesson.path);
   err.value = null;
 };
 </script>
